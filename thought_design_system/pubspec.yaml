@@ -1,0 +1,25 @@
+name: thought_design_system
+description: Thought desgin system for Flutter
+version: 0.0.1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  fonts:
+    - family: Spoqa
+      fonts:
+        - asset: fonts/SpoqaHanSansNeo-Bold.ttf
+          weight: 700
+        - asset: fonts/SpoqaHanSansNeo-Light.ttf
+          weight: 300
+        - asset: fonts/SpoqaHanSansNeo-Regular.ttf
