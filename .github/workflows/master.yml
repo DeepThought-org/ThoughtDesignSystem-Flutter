@@ -16,12 +16,14 @@ jobs:
         with:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
+      - run: ls
   
   build-design-system:
     runs-on: macos-latest
     needs: setup
     env: 
       working-directory: ./thought_design_system
+      flutter: $GITHUB_WORKSPACE/flutter/bin
 
     steps:
       - name: Install dependencies
@@ -41,6 +43,7 @@ jobs:
     needs: setup
     env: 
       working-directory: ./sample
+      flutter: $GITHUB_WORKSPACE/flutter/bin
 
     steps:
       - name: Install dependencies
