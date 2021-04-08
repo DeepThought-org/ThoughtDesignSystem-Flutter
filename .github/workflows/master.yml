@@ -19,8 +19,6 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '12.x'
-      - uses: subosito/flutter-action@v1
-      - run: ls
   
   build-design-system:
     runs-on: macos-latest
