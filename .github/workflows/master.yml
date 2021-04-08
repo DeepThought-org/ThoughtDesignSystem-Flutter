@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  build-design-system:
     runs-on: macos-latest
 
     steps:
@@ -16,6 +16,8 @@ jobs:
         with:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
+
+      - run: cd thought_design_system
 
       - name: Install dependencies
         run: flutter pub get
@@ -28,9 +30,29 @@ jobs:
 
       - name: Run tests
         run: flutter test
-      
+
+  build-sample:
+    runs-on: macos-latest
+    needs: build-design-system
+
+    steps:
+      - run: cd -
+      - run: cd sample
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Verify formatting
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: Analyze project source
+        run: dart analyze
+
+      - name: Run tests
+        run: flutter test
+
       - name: Build Android APK
         run: flutter build apk
-      
+
       - name: Build IOS
         run: flutter build ios
