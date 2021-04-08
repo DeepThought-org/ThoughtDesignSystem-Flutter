@@ -23,7 +23,7 @@ jobs:
     needs: setup
     env: 
       working-directory: ./thought_design_system
-      flutter: $GITHUB_WORKSPACE/flutter/bin
+      FLUTTER_HOME: /Users/runner/hostedtoolcache/flutter/2.0.4-stable/x64
 
     steps:
       - name: Install dependencies
@@ -43,7 +43,7 @@ jobs:
     needs: setup
     env: 
       working-directory: ./sample
-      flutter: $GITHUB_WORKSPACE/flutter/bin
+      FLUTTER_HOME: /Users/runner/hostedtoolcache/flutter/2.0.4-stable/x64
 
     steps:
       - name: Install dependencies
