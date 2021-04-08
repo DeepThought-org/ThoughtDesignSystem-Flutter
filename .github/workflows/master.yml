@@ -12,22 +12,15 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/checkout@v2	
-        with:	
-          repository: flutter/flutter	
-          ref: master
-      - uses: actions/setup-java@v1
-        with:
-          java-version: '12.x'
   
   build-design-system:
     runs-on: macos-latest
     needs: setup
     env: 
       working-directory: ./thought_design_system
-      FLUTTER_HOME: /Users/runner/hostedtoolcache/flutter/bin
 
     steps:
+      - uses: subosito/flutter-action@v1
       - name: Install dependencies
         run: flutter pub get
 
@@ -48,6 +41,10 @@ jobs:
       FLUTTER_HOME: /Users/runner/hostedtoolcache/flutter/bin
 
     steps:
+      - uses: subosito/flutter-action@v1
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
       - name: Install dependencies
         run: flutter pub get
 
