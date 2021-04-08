@@ -7,18 +7,23 @@ on:
     branches: [ master ]
 
 jobs:
-  build-design-system:
+  setup:
     runs-on: macos-latest
-
+    
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
+  
+  build-design-system:
+    runs-on: macos-latest
+    needs: setup
+    env: 
+      working-directory: ./thought_design_system
 
-      - run: cd thought_design_system
-
+    steps:
       - name: Install dependencies
         run: flutter pub get
 
@@ -33,12 +38,11 @@ jobs:
 
   build-sample:
     runs-on: macos-latest
-    needs: build-design-system
+    needs: setup
+    env: 
+      working-directory: ./sample
 
     steps:
-      - run: cd -
-      - run: cd sample
-
       - name: Install dependencies
         run: flutter pub get
 
