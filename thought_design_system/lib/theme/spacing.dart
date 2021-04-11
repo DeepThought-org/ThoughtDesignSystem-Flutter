@@ -3,9 +3,19 @@ library desgin_system_flutter;
 import 'package:flutter/material.dart';
 
 class ThoughtSpacing {
-  static const ExtraSmall = const SizedBox(width: 4, height: 4);
-  static const Small = const SizedBox(width: 8, height: 8);
-  static const Medium = const SizedBox(width: 12, height: 12);
-  static const Large = const SizedBox(width: 24, height: 24);
-  static const ExtraLarge = const SizedBox(width: 48, height: 48);
+  static _Spacing ExtraSmall = const _Spacing(4);
+  static _Spacing Small = const _Spacing(8);
+  static _Spacing Medium = const _Spacing(12);
+  static _Spacing Large = const _Spacing(24);
+  static _Spacing ExtraLarge = const _Spacing(48);
+
+  ThoughtSpacing._();
+}
+
+class _Spacing {
+  final double size;
+
+  const _Spacing(this.size);
+
+  SizedBox get box => SizedBox(width: size, height: size);
 }

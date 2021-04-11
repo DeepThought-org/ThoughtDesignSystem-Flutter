@@ -45,6 +45,8 @@ class ThoughtTypography {
     fontSize: 12,
     fontFamily: 'Spoqa',
   );
+
+  ThoughtTypography._();
 }
 
 extension ThoughtTypographyExt on TextStyle {

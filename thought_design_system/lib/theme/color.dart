@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 class ThoughtColor {
   static const Primary = const Color(0xFFFFDE03);
   static const PrimaryVariant = const Color(0xFFFFAB00);
-  static const OnPrimary = const Color(0xFFFFFFFF);
+  static const OnPrimary = const Color(0xFF000000);
 
   static const Secondary = const Color(0xFF0325FF);
   static const SecondaryVariant = const Color(0xFF0017F2);
-  static const OnSecondary = const Color(0xFF000000);
+  static const OnSecondary = const Color(0xFFFFFFFF);
 
   static const Background = const Color(0xFFFFFFFF);
   static const OnBackground = const Color(0xFF000000);
@@ -27,4 +27,6 @@ class ThoughtColor {
 
   // Yellow
   static const Yellow100 = const Color(0xFFFFF9C4);
+
+  ThoughtColor._();
 }
