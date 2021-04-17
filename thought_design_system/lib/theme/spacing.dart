@@ -1,5 +1,3 @@
-library desgin_system_flutter;
-
 import 'package:flutter/material.dart';
 
 class ThoughtSpacing {
