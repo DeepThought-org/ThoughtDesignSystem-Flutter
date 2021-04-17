@@ -115,14 +115,56 @@ class _PrimaryThoughtToolbar extends StatelessWidget {
 }
 
 class _BigThoughtToolbar extends StatelessWidget {
-
   final ThoughtToolbar property;
 
   _BigThoughtToolbar(this.property);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      color: ThoughtColor.Surface,
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [_buildNavigation(), _buildTitle()],
+      ),
+    );
   }
 
+  _buildNavigation() {
+    final mediumSpacing = ThoughtSpacing.Medium.size;
+    return property.navigationIcon != null
+        ? Padding(
+            padding: EdgeInsets.only(top: mediumSpacing, left: mediumSpacing),
+            child: Material(
+              child: InkWell(
+                child: property.navigationIcon,
+                customBorder: CircleBorder(),
+                onTap: () {
+                  property.onClickNavigation?.call();
+                },
+              ),
+              color: Colors.transparent,
+            ))
+        : SizedBox.shrink();
+  }
+
+  _buildTitle() {
+    final largeSpacing = ThoughtSpacing.Large.size;
+    final extraLargeSpacing = ThoughtSpacing.ExtraLarge.size;
+    return property.title != null
+        ? Padding(
+            padding: EdgeInsets.only(
+                top: extraLargeSpacing,
+                left: largeSpacing,
+                bottom: largeSpacing,
+                right: largeSpacing),
+            child: Text(
+              property.title ?? "",
+              style: ThoughtTypography.Sub1.bold
+                  .copyWith(color: ThoughtColor.OnSurface),
+            ),
+          )
+        : SizedBox.shrink();
+  }
 }
