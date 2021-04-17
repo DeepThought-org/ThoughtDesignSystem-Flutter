@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:thought_design_system/component/button/thought_button.dart';
+import 'package:thought_design_system/component/toolbar/thought_toolbar.dart';
+import 'package:thought_design_system/element/color.dart';
 import 'package:thought_design_system/element/icon.dart';
 
 void main() {
@@ -11,15 +14,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+            primarySwatch: Colors.blue,
+            backgroundColor: ThoughtColor.Background),
         home: Scaffold(
-          body: SafeArea(
-            child: Column(
-              children: [
-                ThoughtIcon.close
-              ],
-            ),
+          appBar: EmptyToolbar(),
+          body: Column(
+            children: [
+              ThoughtToolbar(
+                navigationIcon: ThoughtIcon.back,
+                actionIcon: ThoughtIcon.share,
+                title: "Hel",
+              ),
+            ],
           ),
         ));
   }
