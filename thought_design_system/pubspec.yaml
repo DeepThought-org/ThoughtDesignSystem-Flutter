@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_svg: ^0.21.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -23,3 +25,7 @@ flutter:
         - asset: fonts/SpoqaHanSansNeo-Light.ttf
           weight: 300
         - asset: fonts/SpoqaHanSansNeo-Regular.ttf
+
+  assets:
+    - assets/
+    - assets/icon/

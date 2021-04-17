@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:thought_design_system/component/button/thought_button_style.dart';
-import 'package:thought_design_system/theme/color.dart';
-import 'package:thought_design_system/theme/spacing.dart';
-import 'package:thought_design_system/theme/typography.dart';
+import 'package:thought_design_system/element/color.dart';
+import 'package:thought_design_system/element/spacing.dart';
+import 'package:thought_design_system/element/typography.dart';
 
 class ThoughtButton extends StatelessWidget {
   final ThoughtButtonStyle style;
 
   final String text;
-  final Function onClick;
+  final VoidCallback onClick;
   final bool isEnabled;
 
   ThoughtButton({
@@ -48,7 +48,7 @@ class _ThoughtPrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: ThoughtSpacing.Large.size),
       child: _buildButton(),
     );
@@ -84,7 +84,7 @@ class _ThoughtFullscreenButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: double.infinity,
       child: _buildButton(),
     );
   }

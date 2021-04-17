@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thought_design_system/theme/color.dart';
+import 'package:thought_design_system/element/color.dart';
 
 class ThoughtTypography {
   static const H1 = const TextStyle(
