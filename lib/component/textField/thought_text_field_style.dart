@@ -1,5 +1,1 @@
-enum ThoughtTextFieldStyle {
-
-  Primary,
-  Outline
-}
+enum ThoughtTextFieldStyle { Primary, Outline }

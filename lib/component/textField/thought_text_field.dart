@@ -80,7 +80,10 @@ class _PrimaryThoughtTextFieldState extends State<_PrimaryThoughtTextField>
       child: AnimatedBuilder(
         animation: animation,
         builder: (context, _) {
-          return Text("Hello", style: fontSize.value,);
+          return Text(
+            "Hello",
+            style: fontSize.value,
+          );
         },
       ),
     );
