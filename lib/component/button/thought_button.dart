@@ -36,7 +36,9 @@ class ThoughtButton extends StatelessWidget {
       isEnabled ? ThoughtColor.PrimaryVariant : ThoughtColor.Yellow100;
 
   void onClickButton() {
-    isEnabled ? onClick() : null;
+    if (isEnabled) {
+      onClick();
+    }
   }
 }
 
