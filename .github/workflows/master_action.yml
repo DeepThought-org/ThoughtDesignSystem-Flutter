@@ -26,5 +26,7 @@ jobs:
       - name: Analyze project source
         run: flutter analyze
 
+      - run: cd sample
+
       - name: Build flutter apk
         run: flutter build apk
