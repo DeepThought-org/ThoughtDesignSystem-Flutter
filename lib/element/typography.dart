@@ -36,7 +36,7 @@ const ThoughtTextTheme = const TextTheme(
   button: TextStyle(
     fontFamily: 'Spoqa',
     fontWeight: FontWeight.bold,
-    fontSize: 18,
+    fontSize: 16,
   ),
   bodyText1: TextStyle(
     fontFamily: 'Spoqa',
