@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-abstract class ThoughtButtonStyle extends StatelessWidget {
-  const ThoughtButtonStyle({
+abstract class _ThoughtButtonStyle extends StatelessWidget {
+  const _ThoughtButtonStyle({
     Key? key,
     required this.text,
     required this.onClick,
@@ -13,17 +13,17 @@ abstract class ThoughtButtonStyle extends StatelessWidget {
   final bool isEnabled;
 }
 
-class ThoughtButton extends ThoughtButtonStyle {
+class ThoughtButton extends _ThoughtButtonStyle {
   const ThoughtButton({
     Key? key,
     required String text,
     required VoidCallback onClick,
-    bool isEnabled = true,
+    bool? isEnabled,
   }) : super(
       key: key,
       text: text,
       onClick: onClick,
-      isEnabled: isEnabled
+      isEnabled: isEnabled ?? true
   );
 
   factory ThoughtButton.fullScreen({
@@ -35,7 +35,7 @@ class ThoughtButton extends ThoughtButtonStyle {
 
   @override
   Widget build(BuildContext context) {
-
+    return Container();
   }
 }
 
@@ -50,12 +50,12 @@ class _PrimaryThoughtButton extends ThoughtButton {
       key: key,
       text: text,
       onClick: onClick,
-      isEnabled: isEnabled ?? true
+      isEnabled: isEnabled
   )
 
   @override
   Widget build(BuildContext context) {
-
+    return Container();
   }
 }
 
