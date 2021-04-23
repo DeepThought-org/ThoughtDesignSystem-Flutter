@@ -96,6 +96,31 @@ class _PrimaryThoughtButton extends ThoughtButton {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      width: double.infinity,
+      child: _buildButton(context),
+    );
   }
+
+  @override
+  _buildButton(BuildContext context) => ElevatedButton(
+        onPressed: super.click(),
+        style: _buildButtonStyle(context),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 15, bottom: 14),
+          child: Text(
+            super.text,
+            style: super.getTextStyle(context),
+          ),
+        ),
+      );
+
+  @override
+  _buildButtonStyle(BuildContext context) => ButtonStyle(
+        elevation: MaterialStateProperty.all(0),
+        backgroundColor:
+            MaterialStateProperty.all(super.getBackgroundColor(context)),
+        shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(0))),
+      );
 }

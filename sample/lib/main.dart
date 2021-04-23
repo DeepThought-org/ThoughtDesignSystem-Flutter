@@ -14,7 +14,16 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(title: Text("Hello")),
         body: Column(
           children: [
-            ThoughtButton(text: "Hello", onClick: () {}, isEnabled: false,),
+            ThoughtButton(
+              text: "Hello",
+              onClick: () {},
+              isEnabled: false,
+            ),
+            ThoughtButton.fullScreen(
+              text: "Helo",
+              onClick: () {},
+              isEnabled: false,
+            )
           ],
         ),
       ),
