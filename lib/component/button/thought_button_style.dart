@@ -1,4 +1,0 @@
-enum ThoughtButtonStyle {
-  Primary,
-  FullScreen,
-}

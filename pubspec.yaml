@@ -27,6 +27,9 @@ flutter:
         - asset: fonts/SpoqaHanSansNeo-Light.ttf
           weight: 300
         - asset: fonts/SpoqaHanSansNeo-Regular.ttf
+    - family: Hopang
+      fonts:
+        - asset: fonts/SDSamliphopangcheTTFBasic.ttf
 
   assets:
     - assets/
