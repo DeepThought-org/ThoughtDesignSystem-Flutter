@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-const LightWeight = FontWeight.w300;
-const MediumWeight = FontWeight.w500;
+const lightWeight = FontWeight.w300;
+const mediumWeight = FontWeight.w500;
 
 const ThoughtTextTheme = const TextTheme(
   headline1: TextStyle(
     fontFamily: 'Spoqa',
-    fontWeight: LightWeight,
+    fontWeight: lightWeight,
     fontSize: 96,
   ),
   headline2: TextStyle(
     fontFamily: 'Spoqa',
-    fontWeight: MediumWeight,
+    fontWeight: mediumWeight,
     fontSize: 60,
   ),
   headline3: TextStyle(
@@ -21,7 +21,7 @@ const ThoughtTextTheme = const TextTheme(
   ),
   headline4: TextStyle(
     fontFamily: 'Spoqa',
-    fontWeight: MediumWeight,
+    fontWeight: mediumWeight,
     fontSize: 34,
   ),
   headline5: TextStyle(
@@ -30,7 +30,7 @@ const ThoughtTextTheme = const TextTheme(
   ),
   headline6: TextStyle(
     fontFamily: 'Spoqa',
-    fontWeight: MediumWeight,
+    fontWeight: mediumWeight,
     fontSize: 20,
   ),
   button: TextStyle(
@@ -58,9 +58,9 @@ const ThoughtTextTheme = const TextTheme(
 );
 
 extension ThoughtTypographyExt on TextStyle {
-  TextStyle get light => copyWith(fontWeight: LightWeight);
+  TextStyle get light => copyWith(fontWeight: lightWeight);
 
-  TextStyle get medium => copyWith(fontWeight: MediumWeight);
+  TextStyle get medium => copyWith(fontWeight: mediumWeight);
 
   TextStyle get bold => copyWith(fontWeight: FontWeight.bold);
 }

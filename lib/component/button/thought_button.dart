@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:thought_design_system/element/radius.dart';
 import 'package:thought_design_system/element/spacing.dart';
 
 abstract class _ThoughtButtonStyle extends StatelessWidget {
@@ -16,7 +17,7 @@ abstract class _ThoughtButtonStyle extends StatelessWidget {
   Color getBackgroundColor(BuildContext context) {
     return isEnabled
         ? Theme.of(context).colorScheme.primary
-        : Colors.grey[300]!;
+        : Colors.grey[400]!;
   }
 
   TextStyle getTextStyle(BuildContext context) {
@@ -25,10 +26,8 @@ abstract class _ThoughtButtonStyle extends StatelessWidget {
     return Theme.of(context).textTheme.button!.copyWith(color: textColor);
   }
 
-  void click() {
-    if (isEnabled) {
-      onClick();
-    }
+  VoidCallback? click() {
+    return isEnabled ? onClick : null;
   }
 }
 
@@ -45,38 +44,55 @@ class ThoughtButton extends _ThoughtButtonStyle {
           isEnabled: isEnabled ?? true,
         );
 
-  factory ThoughtButton.fullScreen(
-      {Key? key,
-      required String text,
-      required VoidCallback onClick,
-      bool? isEnabled}) = _PrimaryThoughtButton;
+  factory ThoughtButton.fullScreen({
+    Key? key,
+    required String text,
+    required VoidCallback onClick,
+    bool? isEnabled,
+  }) = _PrimaryThoughtButton;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: ThoughtSpacing.Large.size),
-      color: super.getBackgroundColor(context),
+      padding: EdgeInsets.symmetric(horizontal: ThoughtSpacing.large.size),
       child: _buildButton(context),
     );
   }
 
   _buildButton(BuildContext context) => ElevatedButton(
-        onPressed: super.click,
-        child: Text(
-          super.text,
-          style: super.getTextStyle(context),
+        onPressed: super.click(),
+        style: _buildButtonStyle(context),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 15, bottom: 14),
+          child: Text(
+            super.text,
+            style: super.getTextStyle(context),
+          ),
         ),
+      );
+
+  _buildButtonStyle(BuildContext context) => ButtonStyle(
+        elevation: MaterialStateProperty.all(super.isEnabled ? 4 : 0),
+        backgroundColor:
+            MaterialStateProperty.all(super.getBackgroundColor(context)),
+        shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(borderRadius: ThoughtRadius.large)),
       );
 }
 
 class _PrimaryThoughtButton extends ThoughtButton {
-  _PrimaryThoughtButton(
-      {Key? key,
-      required String text,
-      required VoidCallback onClick,
-      bool? isEnabled})
-      : super(key: key, text: text, onClick: onClick, isEnabled: isEnabled);
+  _PrimaryThoughtButton({
+    Key? key,
+    required String text,
+    required VoidCallback onClick,
+    bool? isEnabled,
+  }) : super(
+          key: key,
+          text: text,
+          onClick: onClick,
+          isEnabled: isEnabled,
+        );
 
   @override
   Widget build(BuildContext context) {
