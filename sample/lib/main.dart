@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:thought_design_system/component/button/thought_button.dart';
+import 'package:thought_design_system/component/thought_button.dart';
+import 'package:thought_design_system/component/thought_toolbar.dart';
+import 'package:thought_design_system/element/icon.dart';
 import 'package:thought_design_system/element/theme.dart';
 
 void main() {
@@ -14,6 +16,11 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(title: Text("Hello")),
         body: Column(
           children: [
+            ThoughtToolbar(
+              title: "호빵",
+              navigationIcon: ThoughtIcon.back,
+              actionIcon: ThoughtIcon.share,
+            ),
             ThoughtButton(
               text: "Hello",
               onClick: () {},
