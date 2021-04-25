@@ -43,6 +43,13 @@ class ThoughtToolbar extends _ThoughtToolbarStyle {
           onClickAction: onClickAction,
         );
 
+  factory ThoughtToolbar.big({
+    Key? key,
+    required String title,
+    Widget? navigationIcon,
+    VoidCallback? onClickNavigation,
+  }) = _BigThoughtToolbar;
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -62,19 +69,19 @@ class ThoughtToolbar extends _ThoughtToolbarStyle {
     );
   }
 
-  _buildNavigation(BuildContext context) => super.navigationIcon != null
+  _buildNavigation(BuildContext context) => navigationIcon != null
       ? Material(
           color: Colors.transparent,
           child: InkWell(
             customBorder: CircleBorder(),
-            onTap: super.clickNavigation(context),
-            child: super.navigationIcon,
+            onTap: clickNavigation(context),
+            child: navigationIcon,
           ),
         )
       : SizedBox(width: 24);
 
   _buildTitle(BuildContext context) => Text(
-        super.title,
+        title,
         style: TextStyle(
           fontSize: 20,
           fontFamily: 'Hopang',
@@ -83,14 +90,71 @@ class ThoughtToolbar extends _ThoughtToolbarStyle {
         ),
       );
 
-  _buildAction() => super.actionIcon != null
+  _buildAction() => actionIcon != null
       ? Material(
           color: Colors.transparent,
           child: InkWell(
             customBorder: CircleBorder(),
-            child: super.actionIcon,
-            onTap: super.onClickAction,
+            child: actionIcon,
+            onTap: onClickAction,
           ),
         )
       : SizedBox(width: 24);
+}
+
+class _BigThoughtToolbar extends ThoughtToolbar {
+  _BigThoughtToolbar({
+    Key? key,
+    required String title,
+    Widget? navigationIcon,
+    VoidCallback? onClickNavigation,
+  }) : super(
+          key: key,
+          title: title,
+          navigationIcon: navigationIcon,
+          onClickNavigation: onClickNavigation,
+        );
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      color: Theme.of(context).colorScheme.surface,
+      child: Padding(
+        padding: EdgeInsets.all(ThoughtSpacing.large.size),
+        child: Column(
+          children: [
+            _buildNavigation(context),
+            _buildTitle(context),
+          ],
+          crossAxisAlignment: CrossAxisAlignment.start,
+        ),
+      ),
+    );
+  }
+
+  @override
+  _buildNavigation(BuildContext context) => navigationIcon != null
+      ? Material(
+          color: Colors.transparent,
+          child: InkWell(
+            customBorder: CircleBorder(),
+            child: navigationIcon,
+            onTap: clickNavigation(context),
+          ),
+        )
+      : SizedBox.shrink();
+
+  @override
+  _buildTitle(BuildContext context) => Padding(
+        padding: EdgeInsets.only(top: ThoughtSpacing.large.size),
+        child: Text(
+          title,
+          style: TextStyle(
+              fontSize: 24,
+              color: Theme.of(context).colorScheme.onSurface,
+              fontFamily: 'Hopang',
+              package: 'thought_design_system'),
+        ),
+      );
 }

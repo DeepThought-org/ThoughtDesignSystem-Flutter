@@ -21,6 +21,10 @@ class MyApp extends StatelessWidget {
               navigationIcon: ThoughtIcon.back,
               actionIcon: ThoughtIcon.share,
             ),
+            ThoughtToolbar.big(
+                title: "호빵",
+              navigationIcon: ThoughtIcon.close,
+            ),
             ThoughtButton(
               text: "Hello",
               onClick: () {},

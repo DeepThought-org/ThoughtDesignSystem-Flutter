@@ -61,21 +61,21 @@ class ThoughtButton extends _ThoughtButtonStyle {
   }
 
   _buildButton(BuildContext context) => ElevatedButton(
-        onPressed: super.click(),
+        onPressed: click(),
         style: _buildButtonStyle(context),
         child: Padding(
           padding: const EdgeInsets.only(top: 15, bottom: 14),
           child: Text(
-            super.text,
-            style: super.getTextStyle(context),
+            text,
+            style: getTextStyle(context),
           ),
         ),
       );
 
   _buildButtonStyle(BuildContext context) => ButtonStyle(
-        elevation: MaterialStateProperty.all(super.isEnabled ? 4 : 0),
+        elevation: MaterialStateProperty.all(isEnabled ? 4 : 0),
         backgroundColor:
-            MaterialStateProperty.all(super.getBackgroundColor(context)),
+            MaterialStateProperty.all(getBackgroundColor(context)),
         shape: MaterialStateProperty.all(
             RoundedRectangleBorder(borderRadius: ThoughtRadius.large)),
       );
@@ -104,13 +104,13 @@ class _PrimaryThoughtButton extends ThoughtButton {
 
   @override
   _buildButton(BuildContext context) => ElevatedButton(
-        onPressed: super.click(),
+        onPressed: click(),
         style: _buildButtonStyle(context),
         child: Padding(
           padding: const EdgeInsets.only(top: 15, bottom: 14),
           child: Text(
-            super.text,
-            style: super.getTextStyle(context),
+            text,
+            style: getTextStyle(context),
           ),
         ),
       );
@@ -119,7 +119,7 @@ class _PrimaryThoughtButton extends ThoughtButton {
   _buildButtonStyle(BuildContext context) => ButtonStyle(
         elevation: MaterialStateProperty.all(0),
         backgroundColor:
-            MaterialStateProperty.all(super.getBackgroundColor(context)),
+            MaterialStateProperty.all(getBackgroundColor(context)),
         shape: MaterialStateProperty.all(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(0))),
       );
