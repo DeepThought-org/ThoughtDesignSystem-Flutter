@@ -68,7 +68,10 @@ class ThoughtTextField extends _ThoughtTextFieldStyle {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: ThoughtSpacing.large.size),
+      padding: EdgeInsets.symmetric(
+        horizontal: ThoughtSpacing.large.size,
+        vertical: ThoughtSpacing.medium.size,
+      ),
       child: TextField(
         maxLength: limit,
         style: _textStyle(context),
