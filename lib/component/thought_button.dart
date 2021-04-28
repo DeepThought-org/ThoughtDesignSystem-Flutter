@@ -73,8 +73,7 @@ class ThoughtButton extends _ThoughtButtonStyle {
 
   _buildButtonStyle(BuildContext context) => ButtonStyle(
         elevation: MaterialStateProperty.all(isEnabled ? 4 : 0),
-        backgroundColor:
-            MaterialStateProperty.all(getBackgroundColor(context)),
+        backgroundColor: MaterialStateProperty.all(getBackgroundColor(context)),
         shape: MaterialStateProperty.all(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
       );
@@ -117,8 +116,7 @@ class _PrimaryThoughtButton extends ThoughtButton {
   @override
   _buildButtonStyle(BuildContext context) => ButtonStyle(
         elevation: MaterialStateProperty.all(0),
-        backgroundColor:
-            MaterialStateProperty.all(getBackgroundColor(context)),
+        backgroundColor: MaterialStateProperty.all(getBackgroundColor(context)),
         shape: MaterialStateProperty.all(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(0))),
       );

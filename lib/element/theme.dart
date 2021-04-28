@@ -12,7 +12,7 @@ class ThoughtApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         textTheme: ThoughtTextTheme,
-        colorScheme: ThoughtLightColorScheme
+        colorScheme: ThoughtLightColorScheme,
       ),
       home: child,
     );
