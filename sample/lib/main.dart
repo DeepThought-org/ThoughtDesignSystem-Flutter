@@ -25,9 +25,12 @@ class MyApp extends StatelessWidget {
             ThoughtTextField(
               hint: "Hello",
               onChanged: (text) {},
-              unit: "살",
-              limit: 3,
-              currentLength: 1,
+            ),
+            ThoughtTextField.outline(
+              hint: "Hello",
+              onChanged: (string) {},
+              lines: 3,
+              limit: 1000,
             ),
           ],
         ),

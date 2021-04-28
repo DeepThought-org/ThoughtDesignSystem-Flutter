@@ -11,6 +11,7 @@ abstract class _ThoughtTextFieldStyle extends StatelessWidget {
     required this.limit,
     required this.currentLength,
     required this.errorText,
+    required this.lines,
   }) : super(key: key);
 
   final String hint;
@@ -19,9 +20,15 @@ abstract class _ThoughtTextFieldStyle extends StatelessWidget {
   final int? limit;
   final int? currentLength;
   final String? errorText;
+  final int lines;
 
   String? get counterText =>
-      limit != null ? "${currentLength ?? 0}/$limit" : null;
+      limit != null ? "${currentLength ?? 0}/$limit" : " ";
+
+  EdgeInsets get textFieldPadding => EdgeInsets.symmetric(
+        horizontal: ThoughtSpacing.large.size,
+        vertical: ThoughtSpacing.medium.size,
+      );
 
   _textStyle(BuildContext context) => Theme.of(context)
       .textTheme
@@ -55,6 +62,7 @@ class ThoughtTextField extends _ThoughtTextFieldStyle {
     int? limit,
     int? currentLength,
     String? errorText,
+    int? lines,
   }) : super(
           key: key,
           hint: hint,
@@ -63,19 +71,29 @@ class ThoughtTextField extends _ThoughtTextFieldStyle {
           limit: limit,
           currentLength: currentLength,
           errorText: errorText,
+          lines: lines ?? 1,
         );
+
+  factory ThoughtTextField.outline({
+    Key? key,
+    required String hint,
+    required Function(String) onChanged,
+    required int lines,
+    int? limit,
+    int? currentLength,
+    String? errorText,
+  }) = _OutlineThoughtTextField;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: ThoughtSpacing.large.size,
-        vertical: ThoughtSpacing.medium.size,
-      ),
+      padding: textFieldPadding,
       child: TextField(
         maxLength: limit,
         style: _textStyle(context),
         onChanged: onChanged,
+        minLines: lines,
+        maxLines: lines,
         decoration: InputDecoration(
           isDense: true,
           suffixIcon: _buildUnit(context),
@@ -117,4 +135,59 @@ class ThoughtTextField extends _ThoughtTextFieldStyle {
 
   _buildUnderlineBorder(Color color) =>
       UnderlineInputBorder(borderSide: BorderSide(color: color));
+}
+
+class _OutlineThoughtTextField extends ThoughtTextField {
+  _OutlineThoughtTextField({
+    Key? key,
+    required String hint,
+    required Function(String) onChanged,
+    required int lines,
+    int? limit,
+    int? currentLength,
+    String? errorText,
+  }) : super(
+          key: key,
+          hint: hint,
+          onChanged: onChanged,
+          limit: limit,
+          currentLength: currentLength,
+          errorText: errorText,
+          lines: lines,
+        );
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: textFieldPadding,
+      child: TextField(
+        maxLength: limit,
+        style: _textStyle(context),
+        onChanged: onChanged,
+        maxLines: lines,
+        minLines: lines,
+        decoration: InputDecoration(
+          hintText: hint,
+          hintStyle: _hintStyle(context),
+          errorText: errorText,
+          errorStyle: _errorStyle(context),
+          counterText: counterText,
+          counterStyle: _counterStyle(context),
+          border: _buildOutlinedBorder(Colors.grey[400]!),
+          focusedBorder: _buildOutlinedBorder(
+              Theme.of(context).colorScheme.primaryVariant),
+          focusedErrorBorder:
+              _buildOutlinedBorder(Theme.of(context).colorScheme.error),
+          errorBorder:
+              _buildOutlinedBorder(Theme.of(context).colorScheme.error),
+          contentPadding: EdgeInsets.only(top: 13, bottom: 11, left: 13),
+        ),
+      ),
+    );
+  }
+
+  _buildOutlinedBorder(Color color) => OutlineInputBorder(
+        borderSide: BorderSide(color: color),
+        borderRadius: BorderRadius.circular(4),
+      );
 }
