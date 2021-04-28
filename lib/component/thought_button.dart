@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:thought_design_system/element/radius.dart';
 import 'package:thought_design_system/element/spacing.dart';
 
 abstract class _ThoughtButtonStyle extends StatelessWidget {
@@ -77,7 +76,7 @@ class ThoughtButton extends _ThoughtButtonStyle {
         backgroundColor:
             MaterialStateProperty.all(getBackgroundColor(context)),
         shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(borderRadius: ThoughtRadius.large)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
       );
 }
 
