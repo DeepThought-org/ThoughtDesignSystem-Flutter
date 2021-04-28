@@ -74,4 +74,6 @@ extension ThoughtTypographyExt on TextStyle {
   TextStyle get medium => copyWith(fontWeight: mediumWeight);
 
   TextStyle get bold => copyWith(fontWeight: FontWeight.bold);
+
+  TextStyle get regular => copyWith(fontWeight: FontWeight.normal);
 }
