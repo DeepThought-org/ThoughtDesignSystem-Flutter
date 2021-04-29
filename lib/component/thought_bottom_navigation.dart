@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+@immutable
 class ThoughtBottomNavigationItem {
   final String name;
   final Widget icon;
@@ -12,6 +13,7 @@ class ThoughtBottomNavigationItem {
   });
 }
 
+@immutable
 abstract class _ThoughtBottomNavigationStyle extends StatefulWidget {
   const _ThoughtBottomNavigationStyle({
     Key? key,

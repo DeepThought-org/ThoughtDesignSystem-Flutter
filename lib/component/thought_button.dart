@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:thought_design_system/element/spacing.dart';
 
+@immutable
 abstract class _ThoughtButtonStyle extends StatelessWidget {
   const _ThoughtButtonStyle({
     Key? key,

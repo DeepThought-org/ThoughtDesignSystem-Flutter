@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:thought_design_system/element/spacing.dart';
 import 'package:thought_design_system/element/typography.dart';
 
+@immutable
 abstract class _ThoughtTextFieldStyle extends StatelessWidget {
   _ThoughtTextFieldStyle({
     Key? key,
