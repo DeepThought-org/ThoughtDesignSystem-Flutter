@@ -13,9 +13,9 @@ abstract class _ThoughtToolbarStyle extends StatelessWidget {
   }) : super(key: key);
 
   final String title;
-  final Widget? navigationIcon;
+  final IconData? navigationIcon;
   final VoidCallback? onClickNavigation;
-  final Widget? actionIcon;
+  final IconData? actionIcon;
   final VoidCallback? onClickAction;
 
   VoidCallback clickNavigation(BuildContext context) {
@@ -31,9 +31,9 @@ class ThoughtToolbar extends _ThoughtToolbarStyle {
   ThoughtToolbar({
     Key? key,
     String? title,
-    Widget? navigationIcon,
+    IconData? navigationIcon,
     VoidCallback? onClickNavigation,
-    Widget? actionIcon,
+    IconData? actionIcon,
     VoidCallback? onClickAction,
   }) : super(
           key: key,
@@ -47,7 +47,7 @@ class ThoughtToolbar extends _ThoughtToolbarStyle {
   factory ThoughtToolbar.big({
     Key? key,
     required String title,
-    Widget? navigationIcon,
+    IconData? navigationIcon,
     VoidCallback? onClickNavigation,
   }) = _BigThoughtToolbar;
 
@@ -76,7 +76,7 @@ class ThoughtToolbar extends _ThoughtToolbarStyle {
           child: InkWell(
             customBorder: CircleBorder(),
             onTap: clickNavigation(context),
-            child: navigationIcon,
+            child: Icon(navigationIcon),
           ),
         )
       : SizedBox(width: 24);
@@ -96,7 +96,7 @@ class ThoughtToolbar extends _ThoughtToolbarStyle {
           color: Colors.transparent,
           child: InkWell(
             customBorder: CircleBorder(),
-            child: actionIcon,
+            child: Icon(actionIcon),
             onTap: onClickAction,
           ),
         )
@@ -107,7 +107,7 @@ class _BigThoughtToolbar extends ThoughtToolbar {
   _BigThoughtToolbar({
     Key? key,
     required String title,
-    Widget? navigationIcon,
+    IconData? navigationIcon,
     VoidCallback? onClickNavigation,
   }) : super(
           key: key,
@@ -140,7 +140,7 @@ class _BigThoughtToolbar extends ThoughtToolbar {
           color: Colors.transparent,
           child: InkWell(
             customBorder: CircleBorder(),
-            child: navigationIcon,
+            child: Icon(navigationIcon),
             onTap: clickNavigation(context),
           ),
         )

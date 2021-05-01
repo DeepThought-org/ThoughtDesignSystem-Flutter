@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 @immutable
 class ThoughtBottomNavigationItem {
   final String name;
-  final Widget icon;
+  final IconData icon;
   final Widget view;
 
   ThoughtBottomNavigationItem({
@@ -54,7 +54,7 @@ class _ThoughtBottomNavigationState extends State<ThoughtBottomNavigation> {
         items: widget.items
             .map((item) => BottomNavigationBarItem(
                   icon: Padding(
-                    child: item.icon,
+                    child: Icon(item.icon),
                     padding: EdgeInsets.symmetric(vertical: 4),
                   ),
                   label: item.name,

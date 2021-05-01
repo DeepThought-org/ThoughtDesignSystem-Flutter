@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
           items: [
             ThoughtBottomNavigationItem(
                 name: "Hello",
-                icon: Icon(Icons.ac_unit),
+                icon: Icons.ac_unit,
                 view: Scaffold(
                   appBar: AppBar(title: Text("Hello")),
                   body: Container(),

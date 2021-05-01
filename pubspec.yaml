@@ -30,6 +30,9 @@ flutter:
     - family: Hopang
       fonts:
         - asset: fonts/SDSamliphopangcheTTFBasic.ttf
+    - family: ThoughtIcon
+      fonts:
+        - asset: fonts/ThoughtIcon.ttf
 
   assets:
     - assets/

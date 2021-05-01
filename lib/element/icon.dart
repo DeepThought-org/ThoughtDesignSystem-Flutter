@@ -1,17 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/widgets.dart';
 
 class ThoughtIcon {
-  static const String _package = "thought_design_system";
-
-  static Widget get back =>
-      SvgPicture.asset("assets/icon/ic_back.svg", package: _package);
-
-  static Widget get close =>
-      SvgPicture.asset("assets/icon/ic_close.svg", package: _package);
-
-  static Widget get share =>
-      SvgPicture.asset("assets/icon/ic_share.svg", package: _package);
-
   ThoughtIcon._();
+
+  static const _kFontFam = 'ThoughtIcon';
+  static const String? _kFontPkg = "thought_design_system";
+
+  static const IconData share =
+      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData back =
+      IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData close =
+      IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
