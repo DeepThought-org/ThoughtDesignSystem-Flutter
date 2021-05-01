@@ -64,8 +64,8 @@ class _ThoughtBottomNavigationState extends State<ThoughtBottomNavigation> {
         onTap: _onTapItem,
         selectedItemColor: Theme.of(context).colorScheme.primaryVariant,
         unselectedItemColor: Colors.grey[800]!,
-        selectedFontSize: 14,
-        unselectedFontSize: 14,
+        selectedLabelStyle: Theme.of(context).textTheme.bodyText2,
+        unselectedLabelStyle: Theme.of(context).textTheme.bodyText2,
       );
 
   _onTapItem(int index) {
