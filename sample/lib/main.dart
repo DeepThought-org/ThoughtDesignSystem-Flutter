@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:thought_design_system/component/thought_bottom_navigation.dart';
-import 'package:thought_design_system/component/thought_button.dart';
 import 'package:thought_design_system/component/thought_scaffold.dart';
 import 'package:thought_design_system/component/thought_toolbar.dart';
 import 'package:thought_design_system/element/icon.dart';
