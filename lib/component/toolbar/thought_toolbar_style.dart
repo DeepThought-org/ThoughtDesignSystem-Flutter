@@ -1,1 +1,0 @@
-enum ThoughtToolbarStyle { Primary, Big }
