@@ -13,7 +13,6 @@ class ThoughtBottomNavigationItem {
   });
 }
 
-@immutable
 abstract class _ThoughtBottomNavigationStyle extends StatefulWidget {
   const _ThoughtBottomNavigationStyle({
     Key? key,
