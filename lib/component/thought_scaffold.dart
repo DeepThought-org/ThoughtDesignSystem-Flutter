@@ -7,7 +7,6 @@ class ThoughtScaffold extends StatelessWidget {
     this.fab,
     this.fabLocation,
     this.fabAnimator,
-    this.footerButton,
     this.drawer,
     this.onDrawerChanged,
     this.endDrawer,
@@ -19,7 +18,6 @@ class ThoughtScaffold extends StatelessWidget {
   final Widget? fab;
   final FloatingActionButtonLocation? fabLocation;
   final FloatingActionButtonAnimator? fabAnimator;
-  final Widget? footerButton;
   final Widget? drawer;
   final DrawerCallback? onDrawerChanged;
   final Widget? endDrawer;
@@ -38,12 +36,12 @@ class ThoughtScaffold extends StatelessWidget {
       floatingActionButton: fab,
       floatingActionButtonLocation: fabLocation,
       floatingActionButtonAnimator: fabAnimator,
-      persistentFooterButtons: footerButton == null ? [] : [footerButton!],
       drawer: drawer,
       onDrawerChanged: onDrawerChanged,
       endDrawer: endDrawer,
       onEndDrawerChanged: onEndDrawerChanged,
       bottomSheet: bottomSheet,
+      backgroundColor: Theme.of(context).colorScheme.background,
     );
   }
 }
